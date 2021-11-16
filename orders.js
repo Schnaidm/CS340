@@ -3,7 +3,7 @@ module.exports = function(){
     var router = express.Router();
 
     function getOrders(res, mysql, context, complete){
-        mysql.pool.query("SELECT Orders.orderID, Orders.date, Customers.firstName as CustomerFirstName, Customers.lastName as CustomerLastName, Orders.totalPrice, Employees.firstName as EmployeeFirstName, Employees.lastName as EmployeeLastName FROM Orders JOIN Customers ON Orders.phoneNumber = Customers.phoneNumber LEFT JOIN Employees ON Orders.employeeID = Employees.employeeID", function(error, results, fields){
+        mysql.pool.query("SELECT Orders.orderID, DATE(Orders.date) as date, Customers.firstName as CustomerFirstName, Customers.lastName as CustomerLastName, Orders.totalPrice, Employees.firstName as EmployeeFirstName, Employees.lastName as EmployeeLastName FROM Orders JOIN Customers ON Orders.phoneNumber = Customers.phoneNumber LEFT JOIN Employees ON Orders.employeeID = Employees.employeeID", function(error, results, fields){
             if(error){
                 res.write(JSON.stringify(error));
                 res.end();
