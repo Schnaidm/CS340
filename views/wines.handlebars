@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf=8">
+    <link rel="stylesheet" href="styles.css">
+    <title>Wine Time Wines</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <h1>Wine Time Wines</h1>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="customers">Customers</a></li>
+            <li><a href="employees">Employees</a></li>
+            <li><a href="wines">Wines</a></li>
+            <li><a href="orders">Orders</a></li>
+            <li><a href="wine_orders">Wine-Orders</a></li>
+        </ul>
+    </nav>
+    <table>
+        <tr>
+            <th>BottleID</th>
+            <th>Brand</th>
+            <th>Type</th>
+            <th>Year</th>
+            <th>Price</th>
+            <th>Status</th>
+            <th>Inventory Amount</th>
+        </tr>
+        {{#each wines}}
+        <tr>
+            <td>{{bottleID}}</td>
+            <td>{{brand}}</td>
+            <td>{{type}}</td>
+            <td>{{year}}</td>
+            <td>{{price}}</td>
+            <td>{{status}}</td>
+            <td>{{inventoryAmount}}</td>
+        </tr>
+        {{/each}}
+    </table>
+    <h2>Add Wine Type:</h2>
+    <form>
+        <fieldset>
+            <label for="brand">Wine brand</label>
+            <br />
+            <input type="text" name="brand" id="brand" maxlength="50" required>
+            <br />
+            <label for="type">Wine name</label>
+            <br />
+            <input type="text" name="type" id="type" maxlength="25" required>
+            <br />
+            <label for="year">Wine year</label>
+            <br />
+            <input type="number" name="year" id="year" maxlength="4" required>
+            <br />
+            <label for="price">Wine price</label>
+            <br />
+            <input type="number" name="price" id="price" maxlength="10" required>
+            <br />
+            <label for="inventoryAmount">Wine inventory amount</label>
+            <br />
+            <input type="number" name="inventoryAmount" id="inventoryAmount" value="inventoryAmount" maxlength="10" required>
+
+        </fieldset>
+        <br />
+        <button type="submit">Add Wine</button>
+    </form>
+    <h2>Update Wine Type:</h2>
+    <i>Please make updates below: Note: * indicates a required entry</i>
+    <form>
+        <fieldset>
+            <label for="brand">Wine brand*</label>
+            <br />
+            <input type="text" name="brand" id="brand" maxlength="50" required>
+            <br />
+            <label for="type">Wine name*</label>
+            <br />
+            <input type="text" name="type" id="type" maxlength="25" required>
+            <br />
+            <label for="year">Wine year*</label>
+            <br />
+            <input type="number" name="year" id="year" maxlength="4" required>
+            <br />
+            <label for="price">Wine price</label>
+            <br />
+            <input type="number" name="price" id="price" maxlength="10" required>
+            <br />
+            <label for="inventoryAmount">Wine inventory amount</label>
+            <br />
+            <input type="number" name="inventoryAmount" id="inventoryAmount" value="inventoryAmount" maxlength="10" required>
+
+        </fieldset>
+        <br />
+        <button type="submit">Update Wine</button>
+    </form>
+</body>
+</html>

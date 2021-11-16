@@ -1,0 +1,54 @@
+<html>
+    <head>
+        <meta charset="utf=8">
+        <link rel="stylesheet" href="styles.css">
+        <title>Wine Time Employees</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <h1>Wine Time Employees</h1>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="customers">Customers</a></li>
+                <li><a href="employees">Employees</a></li>
+                <li><a href="wines">Wines</a></li>
+                <li><a href="orders">Orders</a></li>
+                <li><a href="wine_orders">Wine-Orders</a></li>
+            </ul>
+        </nav>
+        <table>
+            <tr>
+                <th>EmployeeID</th>
+                <th>Employee Name</th>
+                <th>Employee email</th>
+            </tr>
+        {{#each employees}}
+        <tr>
+            <td>{{employeeID}}</td>
+            <td>{{firstName}} {{lastName}}</td>
+            <td>{{email}}</td>
+        </tr>
+        {{/each}}
+        </table>
+        <h2>Add Employee:</h2>
+        <form>
+            <fieldset>
+                <label for="firstName">Employee first name</label>
+                <br />
+                <input type="text" name="firstName" id="firstName" maxlength="15" required>
+                <br />
+                <label for="lastName">Employee last name</label>
+                <br />
+                <input type="text" name="lastName" id="lastName" maxlength="20" required>
+                <br />
+                <label for="email">Employee email address</label>
+                <br />
+                <input type="email" name="email" id="email" maxlength="40">
+
+            </fieldset>
+            <br />
+            <button type="submit">Add Employee</button>
+        </form>
+    </body>
+</html>

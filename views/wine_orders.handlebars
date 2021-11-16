@@ -1,0 +1,60 @@
+<html lang="en">
+<head>
+    <meta charset="utf=8">
+    <link rel="stylesheet" href="styles.css">
+    <title>Wine Time Wine-Orders</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <h1>Wine Time Wine-Orders</h1>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="customers">Customers</a></li>
+            <li><a href="employees">Employees</a></li>
+            <li><a href="wines">Wines</a></li>
+            <li><a href="orders">Orders</a></li>
+            <li><a href="wine_orders">Wine-Orders</a></li>
+        </ul>
+    </nav>
+    <table>
+        <tr>
+            <th>OrderID</th>
+            <th>bottleID</th>
+        </tr>
+        {{#each wine_orders}}
+        <tr>
+            <td>{{orderID}}</td>
+            <td>{{bottleID}}</td>
+            <td>{{quantity}}</td>
+        </tr>
+        {{/each}}
+    </table>
+    <form>
+        <fieldset>
+            <label for="filter">To search for a specfic order's wines, enter the order ID here</label>
+            <input type="number" name="filter" id="filter" value="filter">
+        </fieldset>
+    </form>
+
+    <h2>Add Wine-Order Relationship:</h2>
+    <form>
+        <fieldset>
+            <label for="bottleID">Order ID number</label>
+            <br />
+            <input type="number" name="orderID" id="orderID" value="orderID" maxlength="20" required>
+            <br />
+            <label for="bottleID">Bottle ID number</label>
+            <br />
+            <input type="number" name="bottleID" id="bottleID" value="bottleID" maxlength="10" required>
+            <br />	    
+            <label for="quantity">Quantity</label>
+            <br />
+            <input type="number" name="quantity" id="quantity" value="quantity" maxlength="20" required>
+          
+        </fieldset>
+        <br />
+        <button type="submit">Add Wine-Order</button>
+    </form>
+</body>
+</html>

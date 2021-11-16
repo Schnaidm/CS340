@@ -1,0 +1,79 @@
+<html lang="en">
+<head>
+    <meta charset="utf=8">
+    <link rel="stylesheet" href="styles.css">
+    <title>Wine Time Orders</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <h1>Wine Time Orders</h1>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="customers">Customers</a></li>
+            <li><a href="employees">Employees</a></li>
+            <li><a href="wines">Wines</a></li>
+            <li><a href="ordershtml">Orders</a></li>
+            <li><a href="wine_orders">Wine-Orders</a></li>
+        </ul>
+    </nav>
+    <table>
+        <tr>
+            <th>OrderID</th>
+            <th>Date</th>
+            <th>Customer Name</th>
+            <th>Price</th>
+            <th>Employee Name</th>
+        </tr>
+        {{#each orders}}
+        <tr>
+            <td>{{orderID}}</td>
+            <td>{{date}}</td>
+            <td>{{CustomerFirstName}} {{CustomerLastName}}</td>
+            <td>{{totalPrice}}</td>
+            <td>{{EmployeeFirstName}} {{EmployeeLastName}}</td>
+        </tr>
+        {{/each}}
+    </table>
+    <h2>Create Order:</h2>
+    <form>
+        <fieldset>
+
+            <label for="date">Order date: Enter a date in the form MM/DD/YYY *required</label>
+            <br />
+            <input type="date" name="date" id="date" value="date" required>
+            <br />
+            <label for="phoneNumber">Customer phone number (their ID number): Enter the 10 digit customer phone number *required</label>
+            <br />
+            <input type="text" name="phoneNumber" id="phoneNumber" maxlength="15" required>
+            <br />
+            <label for="employeeID">ID number for the employee who processed the order: *optional</label>
+            <br />
+            <input type="number" name="employeeID" id="employeeID">
+            <br />
+            <label for="bottleID">Bottle ID: Enter the bottle ID numbers for the purchased wines, separate by a comma like "1,2,13" *required</label>
+            <br />
+            <input type="text" name="bottleID" id="bottleID" required>
+
+        </fieldset>
+        <br />
+        <button type="submit">Submit Order</button>
+    </form>
+    <h2>Delete Order:</h2>
+    <form>
+        <fieldset>
+
+            <label for="date">Order date: Enter a date in the form MM/DD/YYY *required</label>
+            <br />
+            <input type="date" name="date" id="date" value="date" required>
+            <br />
+            <label for="phoneNumber">Customer phone number (their ID number): Enter the 10 digit customer phone number *required</label>
+            <br />
+            <input type="text" name="phoneNumber" id="phoneNumber" maxlength="15" required>
+            <br />
+        </fieldset>
+        <br />
+        <button type="submit">Delete Order</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<html>
+<head>
+    <meta charset="utf=8">
+    <link rel="stylesheet" href="styles.css">
+    <title>Wine Time Customers</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <h1>Wine Time Customers</h1>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="customers">Customers</a></li>
+            <li><a href="employees">Employees</a></li>
+            <li><a href="wines">Wines</a></li>
+            <li><a href="orders">Orders</a></li>
+            <li><a href="wine_orders">Wine-Orders</a></li>
+        </ul>
+    </nav>
+    <table>
+        <tr>
+            <th>Customer Phone Number (ID)</th>
+            <th>Customer Name</th>
+            <th>Customer email</th>
+        </tr>
+        {{#each customers}}
+        <tr>
+            <td>{{phoneNumber}}</td>
+            <td>{{firstName}} {{lastName}}</td>
+            <td>{{email}}</td>
+        </tr>
+        {{/each}}
+    </table>
+    <h2>Add Customer:</h2>
+    <form>
+        <fieldset>
+            <label for="firstName">Customer first name</label>
+            <br />
+            <input type="text" name="firstName" id="firstName" maxlength="15" required>
+            <br />
+            <label for="lastName">Customer last name</label>
+            <br />
+            <input type="text" name="lastName" id="lastName" maxlength="20" required>
+            <br />
+            <label for="email">Customer email address</label>
+            <br />
+            <input type="email" name="email" id="email" maxlength="40">
+            <br />
+            <label for="phoneNumber">Customer phone number</label>
+            <br />
+            <input type="text" name="phoneNumber" id="phoneNumber" maxlength="15" required>
+
+        </fieldset>
+        <br />
+        <button type="submit">Add Customer</button>
+    </form>
+</body>
+</html>
