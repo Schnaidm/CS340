@@ -26,6 +26,20 @@ module.exports = function(){
 
         }
     });
+    
+    router.post('/', function (req, res) {
+        var mysql = req.app.get('mysql');
+        var sql = "INSERT INTO Wines (brand, type, year, price, inventoryAmount) VALUES (?,?,?,?,?)";
+        var inserts = [req.body.brand, req.body.type, req.body.year, req.body.price, req.body.inventoryAmount];
+        sql = mysql.pool.query(sql, inserts, function (error, results, fields) {
+            if (error) {
+                res.write(JSON.stringify(error));
+                res.end();
+            } else {
+                res.redirect('/wines');
+            }
+        });
+    });
 
     return router;
 }();

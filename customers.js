@@ -26,6 +26,20 @@ module.exports = function(){
 
         }
     });
-
+    
+    router.post('/', function (req, res) {
+        var mysql = req.app.get('mysql');
+        var sql = "INSERT INTO Customers (phoneNumber, firstName, lastName, email) VALUES (?,?,?,?)";
+        var inserts = [req.body.phoneNumber, req.body.firstName, req.body.lastName, req.body.email];
+        sql = mysql.pool.query(sql, inserts, function (error, results, fields) {
+            if (error) {
+                res.write(JSON.stringify(error));
+                res.end();
+            } else {
+                res.redirect('/customers');
+            }
+        });
+    });
+    
     return router;
 }();
