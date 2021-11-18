@@ -1,4 +1,4 @@
-<html lang="en">
+<html>
 <head>
     <meta charset="utf=8">
     <link rel="stylesheet" href="styles.css">
@@ -37,8 +37,6 @@
                 <form>
                     <button type="submit">Delete</button>
                 </form>
-
-
             </td>
         </tr>
         {{/each}}
@@ -51,13 +49,23 @@
             <br />
             <input type="date" name="date" id="date" value="date" required>
             <br />
-            <label for="phoneNumber">Customer phone number (their ID number): Enter the 10 digit customer phone number *required</label>
+            <label for="phoneNumber">Customer phone number *required</label>
             <br />
-            <input type="text" name="phoneNumber" id="phoneNumber" maxlength="15" required>
+            <select name="phoneNumber" id="phoneNumber">  
+            <option>select customer</option>     
+            {{#each customers}}
+            <option>{{phoneNumber}}</option>
+            {{/each}}
+            </select>
             <br />
             <label for="employeeID">ID number for the employee who processed the order: *optional</label>
             <br />
-            <input type="number" name="employeeID" value="null" id="employeeID">
+            <select name="employeeID" id="employeeID" value="null">  
+            <option>select employee</option>     
+            {{#each employees}}
+            <option>{{employeeID}}</option>
+            {{/each}}
+            </select>
 
         </fieldset>
         <br />

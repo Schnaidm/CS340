@@ -20,19 +20,27 @@
     <form>
         <br>
         <label for="filter">To search for a specfic order's wines, enter the order ID here</label>
-        <input type="number" name="filter" id="filter" value="filter">
-     
+        <select name="filter" id="filter">  
+            <option>select order</option>     
+            {{#each orders}}
+            <option>{{orderID}}</option>
+            {{/each}}
+        </select>
     </form>
     <table>
         <tr>
             <th>OrderID</th>
+            <th>Customer Name</th>
             <th>bottleID</th>
+            <th>Wine</th>
             <th>Quantity</th>
         </tr>
         {{#each wine_orders}}
         <tr>
             <td>{{orderID}}</td>
+            <td>{{firstName}} {{lastName}}</td>
             <td>{{bottleID}}</td>
+            <td>{{brand}}, {{type}}</td>
             <td>{{quantity}}</td>
         </tr>
         {{/each}}
@@ -41,13 +49,23 @@
     <h2>Add Wine-Order Relationship:</h2>
     <form id="addwineorders" action="/wine_orders" method="post">
         <fieldset>
-            <label for="bottleID">Order ID number</label>
+            <label for="orderID">Choose Order</label>
             <br />
-            <input type="number" name="orderID" id="orderID" maxlength="20" required>
+            <select name="orderID" id="orderID">  
+            <option>select order</option>     
+            {{#each orders}}
+            <option>{{orderID}}</option>
+            {{/each}}
+            </select>
+            <br/>
+            <label for="bottleID">Wine</label>
             <br />
-            <label for="bottleID">Bottle ID number</label>
-            <br />
-            <input type="number" name="bottleID" id="bottleID" maxlength="10" required>
+            <select name="bottleID" id="bottleID">  
+            <option>select wine</option>     
+            {{#each wines}}
+            <option>{{bottleID}}</option>
+            {{/each}}
+            </select>
             <br />	    
             <label for="quantity">Quantity</label>
             <br />
