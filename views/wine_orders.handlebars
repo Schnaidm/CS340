@@ -17,6 +17,12 @@
             <li><a href="wine_orders">Wine-Orders</a></li>
         </ul>
     </nav>
+    <form>
+        <br>
+        <label for="filter">To search for a specfic order's wines, enter the order ID here</label>
+        <input type="number" name="filter" id="filter" value="filter">
+     
+    </form>
     <table>
         <tr>
             <th>OrderID</th>
@@ -31,28 +37,21 @@
         </tr>
         {{/each}}
     </table>
-    <form>
-        <fieldset>
-            <label for="filter">To search for a specfic order's wines, enter the order ID here</label>
-            <input type="number" name="filter" id="filter" value="filter">
-        </fieldset>
-    </form>
 
     <h2>Add Wine-Order Relationship:</h2>
     <form id="addwineorders" action="/wine_orders" method="post">
         <fieldset>
             <label for="bottleID">Order ID number</label>
             <br />
-            <input type="number" name="orderID" id="orderID" value="orderID" maxlength="20" required>
+            <input type="number" name="orderID" id="orderID" maxlength="20" required>
             <br />
             <label for="bottleID">Bottle ID number</label>
             <br />
-            <input type="number" name="bottleID" id="bottleID" value="bottleID" maxlength="10" required>
+            <input type="number" name="bottleID" id="bottleID" maxlength="10" required>
             <br />	    
             <label for="quantity">Quantity</label>
             <br />
-            <input type="number" name="quantity" id="quantity" value="quantity" maxlength="20" required>
-          
+            <input type="number" name="quantity" id="quantity" maxlength="20" required>
         </fieldset>
         <br />
         <button type="submit">Add Wine-Order</button>
