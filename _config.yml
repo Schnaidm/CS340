@@ -1,7 +1,7 @@
 theme: jekyll-theme-minimal
 lsi: false
 safe: true
-source: /public/index.html
+source: public/index.html
 incremental: false
 highlighter: rouge
 gist:
