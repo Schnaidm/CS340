@@ -17,30 +17,35 @@
             <li><a href="wine_orders">Wine-Orders</a></li>
         </ul>
     </nav>
+    
+    
+    
     <table>
         <tr>
             <th>OrderID</th>
             <th>Date</th>
             <th>Customer Name</th>
-            <th>Price</th>
+            <th>Total Cost</th>
             <th>Employee Name</th>
             <th>Delete</th>
         </tr>
         {{#each orders}}
         <tr>
+            
             <td>{{orderID}}</td>
             <td>{{date}}</td>
             <td>{{CustomerFirstName}} {{CustomerLastName}}</td>
             <td>{{totalPrice}}</td>
             <td>{{EmployeeFirstName}} {{EmployeeLastName}}</td>
-            <td>
-                <form>
-                    <button type="submit">Delete</button>
-                </form>
-            </td>
+            <form  id="deleteOrder" action="/deleteOrder/{{orderID}}" method="post">
+            <td><button type="submit">Delete</button></td>       
+            </form>
         </tr>
         {{/each}}
     </table>
+    
+    
+    
     <h2>Create Order:</h2>
     <form id="addorder" action="/orders" method="post">
         <fieldset>

@@ -65,5 +65,23 @@ module.exports = function(){
         });
     });
     
+
+    router.post('/:orderID', function(req, res){
+        var mysql = req.app.get('mysql');
+        console.log(req.params);
+        var sql = "DELETE FROM Orders WHERE Orders.orderID=?";
+        var inserts = [req.params.orderID];
+        sql = mysql.pool.query(sql, inserts, function(error, results, fields){
+            if(error){
+                res.write(JSON.stringify(error));
+                res.status(400); 
+                res.end(); 
+            }else{
+                res.status(202).end();
+            }
+        })
+    })
+
+
     return router;
 }();

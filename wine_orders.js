@@ -57,8 +57,8 @@ module.exports = function(){
         var mysql = req.app.get('mysql');
         var inventorysql = "UPDATE Wines SET inventoryAmount = inventoryAmount - (SELECT quantity FROM Orders_Wines join Wines on Orders_Wines.bottleID = Wines.bottleID WHERE Orders_Wines.orderID = ? and Wines.bottleID = ?) where Wines.bottleID = ?";
         var inventoryinserts = [req.body.orderID, req.body.bottleID, req.body.bottleID];
-        var ordersql = "UPDATE Orders SET totalPrice = (SELECT sum(Wines.price) FROM Orders_Wines join Wines on Orders_Wines.bottleID = Wines.bottleID WHERE Orders_Wines.orderID = ?) Where orderID = ?";
-        var orderinserts = [req.body.orderID, req.body.orderID];
+        var ordersql = "UPDATE Orders SET totalPrice = totalPrice + (SELECT sum(Wines.price)*? FROM Orders_Wines join Wines on Orders_Wines.bottleID = Wines.bottleID WHERE Orders_Wines.orderID = ?) Where orderID = ?";
+        var orderinserts = [req.body.quantity, req.body.orderID, req.body.orderID];
         var sql = "INSERT INTO Orders_Wines (orderID, bottleID, quantity) VALUES (?,?,?)";
         var inserts = [req.body.orderID, req.body.bottleID, req.body.quantity];
         sql = mysql.pool.query(sql, inserts, function (error, results, fields) {

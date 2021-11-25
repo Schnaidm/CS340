@@ -25,6 +25,8 @@ app.use('/employees', require('./employees.js'));
 app.use('/orders', require('./orders.js'));
 app.use('/wines', require('./wines.js'));
 app.use('/wine_orders', require('./wine_orders.js'));
+app.use('/updatewine', require('./updateWine.js'));
+app.use('/deleteorder', require('./deleteOrder.js'));
 app.use('/', express.static('public'));
 
 app.listen(PORT, () => {

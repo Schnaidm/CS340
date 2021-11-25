@@ -67,40 +67,56 @@
             <label for="inventoryAmount">Wine inventory amount</label>
             <br />
             <input type="number" name="inventoryAmount" id="inventoryAmount" value="inventoryAmount" maxlength="10" required>
-
         </fieldset>
         <br />
         <button type="submit">Add Wine</button>
     </form>
     <h2>Update Wine Type:</h2>
-    <i>Please make updates below: Note: * indicates a required entry</i>
-    <form>
+    <i>Please make updates to wine prices, inventory amounts, and/or statuses below: Note: * indicates a required entry</i>
+    <form id="updateWine" action="/updateWine" method="post">
         <fieldset>
             <label for="brand">Wine brand*</label>
             <br />
-            <input type="text" name="brand" id="brand" maxlength="50" required>
+            <select name="brand" id="brand">  
+            <option>select brand</option>     
+            {{#each wines}}
+            <option>{{brand}}</option>
+            {{/each}}
+            </select>
             <br />
             <label for="type">Wine name*</label>
             <br />
-            <input type="text" name="type" id="type" maxlength="25" required>
+            <select name="type" id="type">  
+            <option>select type</option>     
+            {{#each wines}}
+            <option>{{type}}</option>
+            {{/each}}
+            </select>
             <br />
             <label for="year">Wine year*</label>
             <br />
-            <input type="number" name="year" id="year" maxlength="4" required>
+            <select name="year" id="year">  
+            <option>select year</option>     
+            {{#each wines}}
+            <option>{{year}}</option>
+            {{/each}}
+            </select>
             <br />
             <label for="price">Wine price</label>
             <br />
             <input type="number" name="price" id="price" maxlength="10" required>
             <br />
-            <label for="status">Status</label>
-            <br />
-            <input type="number" name="status" id="status" value="status" maxlength="10" required>
-
-            <br />
             <label for="inventoryAmount">Wine inventory amount</label>
             <br />
             <input type="number" name="inventoryAmount" id="inventoryAmount" value="inventoryAmount" maxlength="10" required>
-
+             <br />
+            <label for="status">Status</label>
+            <br />
+            <select name="status" id="status">  
+            <option>select status</option> 
+            <option>0</option>    
+            <option>1</option>
+            </select>
         </fieldset>
         <br />
         <button type="submit">Update Wine</button>
