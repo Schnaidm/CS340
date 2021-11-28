@@ -3,10 +3,10 @@ module.exports = function(){
     var router = express.Router();
 
     router.post('/', function (req, res) {
-        console.log("h");
+        console.log(req.body.bottleID);
         var mysql = req.app.get('mysql');
-        var sql = "UPDATE Wines SET price=?, inventoryAmount= ?, status=? WHERE brand=? AND year=? AND type=?";
-        var inserts = [req.body.price, req.body.inventoryAmount, req.body.status, req.body.brand, req.body.year, req.body.type];
+        var sql = "UPDATE Wines SET price=?, inventoryAmount= ?, status=?, brand=?, year=?, type=? WHERE bottleID=?";
+        var inserts = [req.body.price, req.body.inventoryAmount, req.body.status, req.body.brand, req.body.year, req.body.type, req.body.bottleID];
         sql = mysql.pool.query(sql, inserts, function (error, results, fields) {
             if (error) {
                 res.write(JSON.stringify(error));

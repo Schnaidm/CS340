@@ -75,36 +75,30 @@
     <i>Please make updates to wine prices, inventory amounts, and/or statuses below: Note: * indicates a required entry</i>
     <form id="updateWine" action="/updateWine" method="post">
         <fieldset>
-            <label for="brand">Wine brand*</label>
+            <label for="bottleID">Bottle ID*</label>
             <br />
-            <select name="brand" id="brand">  
-            <option>select brand</option>     
+            <select id="bottleID" name="bottleID">
+            <option>Choose bottle ID</option>
             {{#each wines}}
-            <option>{{brand}}</option>
+            <option>{{bottleID}}</option>
             {{/each}}
             </select>
+            <br />
+            <label for="brand">Wine brand*</label>
+            <br />
+            <input type="text" name="brand" id="brand" required>
             <br />
             <label for="type">Wine name*</label>
             <br />
-            <select name="type" id="type">  
-            <option>select type</option>     
-            {{#each wines}}
-            <option>{{type}}</option>
-            {{/each}}
-            </select>
+            <input type="text" name="type" id="type" required> 
             <br />
             <label for="year">Wine year*</label>
             <br />
-            <select name="year" id="year">  
-            <option>select year</option>     
-            {{#each wines}}
-            <option>{{year}}</option>
-            {{/each}}
-            </select>
+            <input type="number" name="year" id="year" maxlength="4" required>
             <br />
             <label for="price">Wine price</label>
             <br />
-            <input type="number" name="price" id="price" maxlength="10" required>
+            <input type="text" name="price" id="price" maxlength="10" required>
             <br />
             <label for="inventoryAmount">Wine inventory amount</label>
             <br />
