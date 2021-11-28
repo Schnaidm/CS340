@@ -6,7 +6,7 @@
         <link rel="stylesheet" href="style.css" />
     </head>
     <body>
-        <h1>Wine Time Employees</h1>
+        
         <nav>
             <ul>
                 <li><a href="/">Home</a></li>
@@ -17,6 +17,7 @@
                 <li><a href="wine_orders">Wine-Orders</a></li>
             </ul>
         </nav>
+        <h1>Wine Time Employees</h1>
         <table>
             <tr>
                 <th>EmployeeID</th>
@@ -31,8 +32,8 @@
         </tr>
         {{/each}}
         </table>
-        <h2>Add Employee:</h2>
-        <form id="addemployee" action="/employees" method="post">
+        <h3>Add Employee:</h3>
+            <form id="addemployee" action="/employees" method="post">
             <fieldset>
                 <label for="firstName">Employee first name</label>
                 <br />

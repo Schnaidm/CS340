@@ -3,7 +3,6 @@ module.exports = function(){
     var router = express.Router();
 
     router.post('/', function (req, res) {
-        console.log(req.body.bottleID);
         var mysql = req.app.get('mysql');
         var sql = "UPDATE Wines SET price=?, inventoryAmount= ?, status=?, brand=?, year=?, type=? WHERE bottleID=?";
         var inserts = [req.body.price, req.body.inventoryAmount, req.body.status, req.body.brand, req.body.year, req.body.type, req.body.bottleID];

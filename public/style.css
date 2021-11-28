@@ -1,11 +1,19 @@
 ﻿
+fieldset {
+    border: none;
+    padding-top: 0px;
+}
+
 body {
     background-color: aliceblue;
     font-family: 'Times New Roman', Times, serif;
+    font-size: large;
+ 
 }
 h1 {
     text-shadow: 1px 1px 1px #ccc;
     color:#303030;
+    padding-left: 1%;
 }
 button{
     border-radius:8px;
@@ -13,27 +21,32 @@ button{
 table{
     border-color:black;
     border: 1px solid black;
-    border-collapse:collapse;
     margin: 10px;
+    position: relative;
+    width:80%;
+    font-size: large;
 }
 table tr:nth-child(2n+1) {
     background-color: white;
+    margin: 10px;
 }
 table td, th{
     border:1px solid black;
-    padding:2px;
+    padding:5px;
 }
 table th{
+    border-width: 2px;
     padding-top: 3px;
     padding-bottom: 3px;
-    text-align:left;
     background-color: lightgrey;
-    color: black;
+    color: black;    
+    text-align: center;
 }
 nav{
     background-color: aliceblue;
     margin:0;
     overflow:hidden;
+    padding-bottom: 15px;
 }
 nav ul{
     margin:0;

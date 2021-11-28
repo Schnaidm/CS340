@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <h1>Wine Time Wines</h1>
+    
     <nav>
         <ul>
             <li><a href="/">Home</a></li>
@@ -18,6 +18,7 @@
             <li><a href="wine_orders">Wine-Orders</a></li>
         </ul>
     </nav>
+    <h1>Wine Time Wines</h1>
     <table>
         <tr>
             <th>BottleID</th>
@@ -40,7 +41,9 @@
         </tr>
         {{/each}}
     </table>
-    <h2>Add Wine Type:</h2>
+    <div style="float:left; width:50%">
+    <h3>Add Wine Type:</h3>
+    
     <form id="addwine" action="/wines" method="post">
         <fieldset>
             <label for="brand">Wine brand</label>
@@ -58,20 +61,27 @@
             <label for="price">Wine price</label>
             <br />
             <input type="number" name="price" id="price" maxlength="10" required>
-            <br />
+             <br />
             <label for="status">Status</label>
             <br />
-            <input type="number" name="status" id="status" value="status" maxlength="10" required>
-
+            <select name="status" id="status">  
+            <option>select status</option> 
+            <option>0</option>    
+            <option>1</option>
+            </select>
             <br />
             <label for="inventoryAmount">Wine inventory amount</label>
             <br />
             <input type="number" name="inventoryAmount" id="inventoryAmount" value="inventoryAmount" maxlength="10" required>
+            <br />
+            <br />
+            <button type="submit">Add Wine</button>
         </fieldset>
-        <br />
-        <button type="submit">Add Wine</button>
     </form>
-    <h2>Update Wine Type:</h2>
+    </div>
+    <div style="float:right"></div>
+    
+    <h3>Update Wine Type:</h3>
     <i>Please make updates to wine prices, inventory amounts, and/or statuses below: Note: * indicates a required entry</i>
     <form id="updateWine" action="/updateWine" method="post">
         <fieldset>
@@ -111,9 +121,11 @@
             <option>0</option>    
             <option>1</option>
             </select>
-        </fieldset>
-        <br />
-        <button type="submit">Update Wine</button>
+            <br />
+            <br />
+            <button type="submit">Update Wine</button>
+        </fieldset>        
     </form>
+    </div>
 </body>
 </html>

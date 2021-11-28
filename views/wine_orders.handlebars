@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <h1>Wine Time Wine-Orders</h1>
+    
     <nav>
         <ul>
             <li><a href="/">Home</a></li>
@@ -17,8 +17,8 @@
             <li><a href="wine_orders">Wine-Orders</a></li>
         </ul>
     </nav>
+    <h1>Wine Time Wine-Orders</h1>
     <form>
-        <br>
         <label for="filter">To search for a specfic order's wines, enter the order ID here</label>
         <select name="filter" id="filter">  
             <option>select order</option>     
@@ -46,7 +46,7 @@
         {{/each}}
     </table>
 
-    <h2>Add Wine-Order Relationship:</h2>
+    <h3>Add Wine-Order Relationship:</h3>
     <form id="addwineorders" action="/wine_orders" method="post">
         <fieldset>
             <label for="orderID">Choose Order</label>
